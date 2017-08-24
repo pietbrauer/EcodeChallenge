@@ -18,17 +18,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self configureView];
-    
 }
 
 - (void)configureView {
-    
-  [self.zoomView setImageFromURL:[NSURL URLWithString:[_originalImages setImageURLForSize:Original]]];
-
-    
+  [self.zoomView setImageFromURL:[NSURL URLWithString:[self.image setImageURLForSize:Original]]];
 }
-
 
 @end

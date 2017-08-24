@@ -11,7 +11,6 @@
 
 @interface ImageZoomViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *zoomView;
-@property (strong, nonatomic)ImageObject *originalImages;
-@property (strong, nonatomic)NSString *showImage;
+@property (strong, nonatomic) ImageObject *image;
 
 @end
