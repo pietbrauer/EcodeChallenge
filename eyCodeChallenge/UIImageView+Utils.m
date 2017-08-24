@@ -16,7 +16,7 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         
-        NSString *urlString =  [NSString stringWithFormat:@"http://%@", url];
+        NSString *urlString =  [NSString stringWithFormat:@"https://%@", url];
         NSData *downloadedData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
         
         if (downloadedData) {
