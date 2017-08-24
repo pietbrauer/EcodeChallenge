@@ -11,21 +11,12 @@
 @implementation ImageObject
 
 - (NSString *)setImageURLForSize:(ImageType)type {
-    
-    NSString *finalUrl;
     switch (type) {
-        case Thumbnail: {
-            finalUrl = [NSString stringWithFormat:@"%@,_2.jpg",self.uri];
-            
-            break;
-        }
-        case Original: {
-            finalUrl = [NSString stringWithFormat:@"%@,_27.jpg",self.uri];
-            break;
-        }
+        case Thumbnail:
+            return [NSString stringWithFormat:@"%@,_2.jpg", self.uri];
+        case Original:
+            return [NSString stringWithFormat:@"%@,_27.jpg", self.uri];
     }
-    
-    return finalUrl;
 }
 
 
