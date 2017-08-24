@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-
 @interface ImageGridViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end

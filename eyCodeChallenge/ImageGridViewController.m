@@ -13,13 +13,13 @@
 #import "ImageZoomViewController.h"
 
 @interface ImageGridViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
-    
-    @property (nonatomic, strong)NSArray *images;
-    
-    @end
+
+@property (nonatomic, strong)NSArray <ImageObject *>*images;
+
+@end
 
 @implementation ImageGridViewController
-    
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -39,15 +39,9 @@
 }
 
 #pragma mark - Collection View
-    
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.images.count;
-    
-}
-    
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
-    
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -59,17 +53,14 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-        ImageObject *post = self.images[indexPath.row];
-        [self performSegueWithIdentifier:@"segueImage" sender:post];
-    }
-    
-    
-    
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if([[segue identifier]isEqualToString:@"segueImage"]) {
-       ImageZoomViewController *VC = segue.destinationViewController;
-                    VC.originalImages = sender;
- }
+    ImageObject *post = self.images[indexPath.row];
+    [self performSegueWithIdentifier:@"segueImage" sender:post];
 }
-    @end
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"segueImage"]) {
+        ((ImageZoomViewController *)segue.destinationViewController).image = sender;
+    }
+}
+
+@end
