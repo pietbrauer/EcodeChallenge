@@ -9,7 +9,7 @@
 #import "ImageGridViewController.h"
 #import "ImageObject.h"
 #import "ApiNetworkingManager.h"
-#import "imageGridCollectionViewCell.h"
+#import "ImageGridCollectionViewCell.h"
 #import "ImageZoomViewController.h"
 
 @interface ImageGridViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
@@ -55,19 +55,13 @@
     return 1;
     
 }
-    
-- (imageGridCollectionViewCell  *)imageGridCell:(UICollectionView *)collectionView forIndexPath:(NSIndexPath *)indexPath {
-    
-    imageGridCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[imageGridCollectionViewCell cellIdentifier] forIndexPath:indexPath];
-    
-     [cell setup:self.images[indexPath.row]];
-    
-    return cell;
-}
-    
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return [self imageGridCell:collectionView forIndexPath:indexPath];
+    ImageGridCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[ImageGridCollectionViewCell cellIdentifier] forIndexPath:indexPath];
+
+    [cell setup:self.images[indexPath.row]];
+
+    return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

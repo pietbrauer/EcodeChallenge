@@ -6,33 +6,19 @@
 //  Copyright © 2017 Maila  Manzur. All rights reserved.
 //
 
-#import "imageGridCollectionViewCell.h"
+#import "ImageGridCollectionViewCell.h"
 #import "ImageObject.h"
 #import "UIImageView+Utils.h"
 
-@implementation imageGridCollectionViewCell
+@implementation ImageGridCollectionViewCell
 
 +(NSString *)cellIdentifier {
-    NSString *identifier = NSStringFromClass(self.class);
-    return identifier;
+    return NSStringFromClass(self.class);
 }
 
 -(void)setup:(ImageObject *)object {
-    
-    self.imageURL = object;
-    
+    self.image = object;
     [self.imageView setImageFromURL:[NSURL URLWithString:[object setImageURLForSize:Thumbnail]]];
-    
 }
-
-+(void)registerForCollectionView:(UICollectionView *)collectionview {
-    NSString *identifier = NSStringFromClass(self.class);
-    UINib *nib = [UINib nibWithNibName:identifier bundle:nil];
-    [collectionview registerNib:nib forCellWithReuseIdentifier:identifier];
-    
-}
-
-
-
 
 @end

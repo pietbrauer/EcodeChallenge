@@ -10,16 +10,13 @@
 
 @class ImageObject;
 
-@interface imageGridCollectionViewCell : UICollectionViewCell
+@interface ImageGridCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-    
-@property (strong, nonatomic)ImageObject *imageURL;
+@property (strong, nonatomic)ImageObject *image;
 
 +(NSString *)cellIdentifier;
 
 -(void)setup:(ImageObject *)object;
-
-+(void)registerForCollectionView:(UICollectionView *)collectionview;
 
 @end
