@@ -185,7 +185,6 @@
 			isa = PBXGroup;
 			children = (
 				0651E0361F4D04510092030C /* Cell */,
-				0651E0351F4D043E0092030C /* CollectionView */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -199,13 +198,6 @@
 				06C7F0951F4DEB1300D59A39 /* ImageZoomViewController.m */,
 			);
 			name = "Controllers ";
-			sourceTree = "<group>";
-		};
-		0651E0351F4D043E0092030C /* CollectionView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = CollectionView;
 			sourceTree = "<group>";
 		};
 		0651E0361F4D04510092030C /* Cell */ = {
