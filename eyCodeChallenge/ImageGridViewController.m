@@ -27,19 +27,17 @@
     self.collectionView.dataSource = self;
     [self fetchImages];
 }
-    
-    
+
+
 - (void)fetchImages {
     [ApiNetworkingManager fetchImageWithSuccess:^(id response) {
         self.images = response;
-        
         [self.collectionView reloadData];
-        
-    } failure:^(NSError *thError) {
-        
+    } failure:^(NSError *theError) {
+        NSLog(@"%@", theError);
     }];
 }
-    
+
 #pragma mark - Collection View
     
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

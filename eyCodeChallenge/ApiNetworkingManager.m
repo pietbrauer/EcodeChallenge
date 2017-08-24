@@ -18,12 +18,17 @@
     NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                     if (error) {
-                                                        failure(error);
+                                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                                            failure(error);
+                                                        });
                                                     } else {
                                                         NSArray *response = [ImageBuilder groupsFromJSON:data error:&error];
-                                                        success(response);
+                                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                                            success(response);
+                                                        });
                                                     }
                                                 }];
     [dataTask resume];
 }
+
 @end
