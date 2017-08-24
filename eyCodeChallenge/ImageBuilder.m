@@ -23,16 +23,15 @@
     
     NSMutableArray *images = [[NSMutableArray alloc] init];
     
-    if (parsedObject[@"images"])
-    {
+    if (parsedObject[@"images"]) {
         NSArray *results = parsedObject[@"images"];
         
-        for (NSDictionary *imageDic in results) {
+        for (NSDictionary *imageDict in results) {
             ImageObject *image = [ImageObject new];
             
-            for (NSString *key in imageDic) {
+            for (NSString *key in imageDict) {
                 if ([image respondsToSelector:NSSelectorFromString(key)]) {
-                    [image setValue:[imageDic valueForKey:key] forKey:key];
+                    [image setValue:[imageDict valueForKey:key] forKey:key];
                 }
             }
             
@@ -41,7 +40,6 @@
     }
     
     return images;
-    
 }
 
 @end
