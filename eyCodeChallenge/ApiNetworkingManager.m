@@ -13,8 +13,6 @@
 
 @implementation ApiNetworkingManager
 
-
--(void)fetchImageWithSuccess:(ImageSuccessBlock)success failure:(ImageFailureBlock)failure {
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://m.mobile.de/svc/a/238662383"]
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
@@ -23,6 +21,7 @@
     
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
++ (void)fetchImageWithSuccess:(ImageSuccessBlock)success failure:(ImageFailureBlock)failure {
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                     if (error) {
                                                         failure(error);

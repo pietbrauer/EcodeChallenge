@@ -30,11 +30,7 @@
     
     
 - (void)fetchImages {
-    
-    ApiNetworkingManager *manager = [ApiNetworkingManager new];
-    
-    [manager fetchImageWithSuccess:^(id response) {
-        
+    [ApiNetworkingManager fetchImageWithSuccess:^(id response) {
         self.images = response;
         
         [self.collectionView reloadData];

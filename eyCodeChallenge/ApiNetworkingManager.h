@@ -13,6 +13,6 @@ typedef void (^ImageFailureBlock)(NSError *thError);
 
 @interface ApiNetworkingManager : NSObject
 
--(void)fetchImageWithSuccess:(ImageSuccessBlock)success failure:(ImageFailureBlock)failure;
++ (void)fetchImageWithSuccess:(ImageSuccessBlock)success failure:(ImageFailureBlock)failure;
 
 @end
