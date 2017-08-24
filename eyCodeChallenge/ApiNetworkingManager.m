@@ -13,15 +13,9 @@
 
 @implementation ApiNetworkingManager
 
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://m.mobile.de/svc/a/238662383"]
-                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval:10.0];
-    [request setHTTPMethod:@"GET"];
-    
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
 + (void)fetchImageWithSuccess:(ImageSuccessBlock)success failure:(ImageFailureBlock)failure {
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://m.mobile.de/svc/a/238662383"]];
+    NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                     if (error) {
                                                         failure(error);
